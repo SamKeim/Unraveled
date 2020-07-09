@@ -1,0 +1,16 @@
+BLANC	White	null	[null]	true	0
+150	Red - BRIGHT	null	[null]	true	0
+151	Pink	null	[null]	false	0
+152	Tawny - DK	null	[null]	false	0
+153	Lilac	null	[null]	false	0
+154	Red - VY DK	null	[null]	false	0
+155	Forget-me-not Blue	null	[null]	false	0
+156	Blue - MED	null	[null]	false	0
+157	Blue - LT	null	[null]	false	0
+158	Blue - DK	null	[null]	false	0
+159	Petrol Blue - LT	null	[null]	false	0
+160	Petrol Blue - MED	null	[null]	false	0
+161	Petrol Blue - DK	null	[null]	false	0
+162	Baby Blue - LT	null	[null]	false	0
+163	Green	null	[null]	false	0
+164	Green - LT	null	[null]	false	0

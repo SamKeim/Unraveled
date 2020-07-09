@@ -1,0 +1,34 @@
+
+Build Specs:
+DMC Pojo
+	* Color number
+	* Color name
+	* Storage Box // null
+	* Boolean purchased
+	* Number of Bobbins // null
+
+Project Pojo
+	* name
+	* status
+	* Start Date
+	* End Date
+	* Source // url
+	* Description
+	* Notes
+
+I/O File
+
+Menu capabilities
+	* Add Project
+		* Takes in List Of Colors
+		* Validates Colors against Master
+		* Returns Two Lists, sorted
+			* Colors Needed (Shopping List)
+			* Colors Owned
+		* Prompts user to add project or cancel
+		* Saves shopping list as owned, moves all colors to "Project Name" box
+	* Update Project
+	* Complete Project
+	* Add DMC color to Master List
+
+
