@@ -11,12 +11,10 @@ public class DMCLineConverter implements LineConverter<DMC> {
 	@Override
 	public String toLine(DMC object) { // takes dmc object and sets it to string to send to text file
 		return String.format(
-				"%s\t%s\t%s\t%s\t%s\t%d",
+				"%s\t%s\t%s\t%d",
 				object.getNumber(),
 				object.getName(),
 				object.getBox(),
-				object.getProjects().toString(),
-				object.isPurchased(),
 				object.getBobbins());
 	}
 
@@ -28,8 +26,6 @@ public class DMCLineConverter implements LineConverter<DMC> {
 					lines[0],
 					lines[1],
 					"null",
-					"null",
-					false,
 					0
 					);
 		} else {
@@ -37,9 +33,7 @@ public class DMCLineConverter implements LineConverter<DMC> {
 					lines[0],
 					lines[1],
 					lines[2],
-					lines[3],
-					lines[4].equals("true"),
-					Integer.parseInt(lines[5])
+					Integer.parseInt(lines[3])
 					);
 			
 		}

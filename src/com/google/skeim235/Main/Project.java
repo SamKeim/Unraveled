@@ -1,6 +1,8 @@
 package com.google.skeim235.Main;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 public class Project {
 	private String name;
@@ -9,7 +11,7 @@ public class Project {
 	private LocalDate endDate;
 	private String source; // URL
 	private String description; // brief description of project
-	private String notes; // room for more detailed notes
+	private List<String> notes; // room for more detailed notes
 
 	public Project() {
 	}
@@ -35,7 +37,7 @@ public class Project {
 		setEndDate(endDate);
 		this.setSource(source);
 		this.description = description;
-		this.notes = notes;
+		setNotes(notes);
 	}
 	
 	public void setStartDate(String startDate) {
@@ -47,11 +49,15 @@ public class Project {
 	}
 	
 	public void setEndDate(String endDate) {
-		String[] arr = endDate.split("-");
-		int year = Integer.parseInt(arr[0]);
-		int month = Integer.parseInt(arr[1]);
-		int dayOfMonth = Integer.parseInt(arr[2]);
-		this.endDate = LocalDate.of(year, month, dayOfMonth);		
+		if(endDate.equals("null")) {
+			endDate = "null";
+		} else {
+			String[] arr = endDate.split("-");
+			int year = Integer.parseInt(arr[0]);
+			int month = Integer.parseInt(arr[1]);
+			int dayOfMonth = Integer.parseInt(arr[2]);
+			this.endDate = LocalDate.of(year, month, dayOfMonth);
+		}
 	}
 	
 	public String getName() {
@@ -70,12 +76,27 @@ public class Project {
 		this.description = description;
 	}
 
-	public String getNotes() {
+	public List<String> getNotes() {
 		return notes;
+	}
+	
+	public String getNoteString() {
+		StringBuilder sb = new StringBuilder();
+		for(String s : notes) {
+			sb.append(s);
+			sb.append("/*/");
+		}
+		return sb.toString();
 	}
 
 	public void setNotes(String notes) {
-		this.notes = notes;
+		notes = notes.substring(1,notes.length() - 1);
+		this.notes = Arrays.asList(notes.split("/*/"));
+	}
+	
+	public void addNote(String note) {
+		note = LocalDate.now().toString() + " " + note;
+		notes.add(note);
 	}
 	
 	@Override

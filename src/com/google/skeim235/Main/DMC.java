@@ -1,15 +1,10 @@
 package com.google.skeim235.Main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DMC {
 
 	private String number;
 	private String name;
 	private String box;
-	private List<Project> projects;
-	private boolean purchased;
 	private int bobbins;
 
 	public DMC() {
@@ -20,13 +15,11 @@ public class DMC {
 		super();
 		this.number = number;
 	}
-	public DMC(String number, String name, String box, String projects, boolean purchased, int bobbins) {
+	public DMC(String number, String name, String box, int bobbins) {
 		super();
 		this.number = number;
 		this.name = name;
 		this.box = box;
-		this.setProjects(projects);
-		this.purchased = purchased;
 		this.bobbins = bobbins;
 
 	}
@@ -55,35 +48,6 @@ public class DMC {
 		this.box = box;
 	}
 
-	public List<Project> getProjects() {
-		return projects;
-	}
-
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
-	}
-
-	public void setProjects(String list) {
-		this.projects = new ArrayList<Project>();
-		if (list == null || list.equals("null")) {
-			this.projects.add(new Project("null"));
-		} else {
-			list = list.substring(1, list.length() - 1);
-			String[] arrayList = list.split(", ");
-			for (String item : arrayList) {
-				projects.add(new Project(item));
-			}
-		}
-	}
-
-	public boolean isPurchased() {
-		return purchased;
-	}
-
-	public void setPurchased(boolean purchased) {
-		this.purchased = purchased;
-	}
-
 	public int getBobbins() {
 		return bobbins;
 	}
@@ -92,13 +56,9 @@ public class DMC {
 		this.bobbins = bobbins;
 	}
 
-	/*
-	 * DMC Pojo * Color number * Color name * Storage Box // null * Associated
-	 * Projects // null * Boolean purchased * Number of Bobbins // null
-	 */
 	@Override
 	public String toString() {
-		if (purchased) {
+		if (bobbins != 0) {
 			return String.format("%s\t%s\t%s\t%d", number, name, box, bobbins);
 		} else {
 			return String.format("%s\t%s\t", number, name);
@@ -118,9 +78,5 @@ public class DMC {
 		
 		return isNumberValid && isNameValid;
 	}
-	
-//	@Override
-//	public int compareTo(DMC compare) {
-//		return 0;
-//	}
+
 }

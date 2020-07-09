@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class GetMethods {
 	public static Scanner scn = new Scanner(System.in);
 	
-	public static String getString() {
+	public static String getString(String prompt) {
+		System.out.println(prompt);
 		return scn.nextLine();
 	}
 	
@@ -17,13 +18,65 @@ public class GetMethods {
 		while (!valid){
 			System.out.print(prompt);
 			answer = scn.next().toUpperCase().charAt(0);
+			scn.nextLine();
 			valid = answer == 'Y' || answer == 'N';
 			if(!valid) System.out.println("Please enter Y or N.");
 		} while (!valid);
 		return answer == 'Y';
 	}
 	
+	public static String getPageSelection(int minIndex, int maxIndex) {
+		String response = "";
+		int selection = 0;
+		boolean valid = false;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/// VALIDATE AVAILABILITY OF NEXT OR PREVIOUS PAGE AND ALTER
+		System.out.print("[N] Next, [P] Previous, or [#] Line: ");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		do {
+			if(scn.hasNextInt()) {
+				selection = scn.nextInt();
+				scn.nextLine();
+				if(selection >= minIndex && selection <= maxIndex) {
+					response = Integer.toString(selection);
+					valid = true;
+				}
+			} else {
+				response = scn.nextLine().toUpperCase();
+				if(response.startsWith("N") || response.startsWith("P")) {
+					response = response.substring(0, 1);
+					valid = true;
+				}
+			}
+			if(!valid)
+				System.out.println("Invalid. Try again.");
+			System.out.println(response);
+		} while (!valid);
+		return response;
+	}
+
 	public static int getUserChoice(int maxIndex) {
+		return getUserChoice(0, maxIndex);
+	}
+	
+	public static int getUserChoice(int minIndex, int maxIndex) {
 		System.out.print("Selection: ");
 		while(!scn.hasNextInt()) {
 			System.out.print("Invalid.\nSelection:");
@@ -32,15 +85,14 @@ public class GetMethods {
 		int choice = scn.nextInt();
 		
 		// VALIDATE BASED ON MENU OPTIONS
-		boolean valid = choice >= 0 && choice <= maxIndex;
+		boolean valid = choice >= minIndex && choice <= maxIndex;
 		if(!valid) {
 			System.out.print("Invalid.\nSelection: ");
-			choice = getUserChoice(maxIndex);				
+			choice = getUserChoice(minIndex, maxIndex);				
 		}
-		
+		scn.nextLine();
 		return choice;
 	}
-	
 	
 	@SuppressWarnings("unlikely-arg-type")
 	public static DMC getValidDMC() throws IllegalArgumentException {

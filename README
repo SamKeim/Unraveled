@@ -26,9 +26,18 @@ Menu capabilities
 			* Colors Needed (Shopping List)
 			* Colors Owned
 		* Prompts user to add project or cancel
+		* Gets Info on project source, detailed description
+		* Marks project as (In Progress) with start date as today
 		* Saves shopping list as owned, moves all colors to "Project Name" box
 	* Update Project
+		* Display submenu
+			* Add Note
+				* Gets note string from user, appends date to log entry
+			* Change Status
+				* Get string status from user, updates project
 	* Complete Project
+	* Review Projects
 	* Add DMC color to Master List
 
+Saves file upon returning to Main Menu
 
